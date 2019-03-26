@@ -6,17 +6,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Ca combination</title>
+<title>Ca combo </title>
 
 <style type="text/css">
     body {
-    font-family: 'PT Sans',arial,sans-serif;
+    font-family: 'PT Sans', arial, sans-serif;
 }
 
 .listitem {
     display: flex;
-    padding: 0 5px;
+    /* padding: 0 5px; */
     flex-flow: wrap;
+    float: right;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -55,20 +56,13 @@ table thead>tr>th, table tbody>tr>th, table tfoot>tr>th, table thead>tr>td, tabl
     display: none !important;
 }
 
-@media screen and (max-width: 750px) {
-    .list_main {
-        zoom: 70%;
-        padding: 30px 0;
-    }
-}
-
 .listitem span {
-    background: #e0e0e0;
+    background: #ddd;
     text-align: center;
-    display: inline-table;
-    padding: 5px 12px;
-    margin: 0 2px;
-    margin-bottom: 4px;
+    display: inline-flex;
+    padding: 10px;
+    /* margin: 0 2px; */
+    /* margin-bottom: 4px; */
     white-space: nowrap;
 }
 
@@ -91,7 +85,7 @@ a {
 }
 
 #search i {
-    padding: 15px 5px 5px 0px ;
+    padding: 15px 5px 5px 0px;
     font-size: 2.25rem;
 }
 
@@ -119,18 +113,29 @@ a {
 
 .dropdown-content {
     background-color: #f6f6f6;
-    width: 50vw;
-    border: 1px solid #ddd;
-    z-index: 989;
-    left: 50%;
-    transform: translate(-50%);
-    display: block;
-    position: absolute;
+    /* width: 50vw; */
+    border-left: 2px solid #ddd;
+    border-top: 2px solid #ddd;
+    /* z-index: 989; */
+    /* left: 50%; */
+    /* transform: translate(-50%); */
+    /* display: block; */
+    /* position: absolute; */
     -webkit-box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6);
-    -moz-box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6);
-    -ms-box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6);
-    -o-box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6);
     box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6);
+    display: flex;
+    flex-direction: row;
+    /* -webkit-box-flex: 0; */
+    /* flex: 0 0 25%; */
+    /* max-width: 25%; */
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    /* padding-right: 15px; */
+    /* padding-left: 15px; */
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
 }
 
 .col-dl {
@@ -147,11 +152,14 @@ a {
 
 /* Links inside the dropdown */
 
-.dropdown-content a {
+a {
     color: black;
-    padding: 12px 16px;
     text-decoration: none;
-    display: block;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    /* display: block; */
 }
 
 /* Change color of dropdown links on hover */
@@ -160,8 +168,205 @@ a {
     background-color: #f1f1f1
 }
 
-#device, #list_container {
+#topbar, #list_container {
     padding: 10px 7px;
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-width: 0;
+    word-break: keep-all;
+    background-color: #fff;
+    background-clip: border-box;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+    box-sizing: border-box;
+    flex: 0 0 20%;
+    width: 20%;
+}
+
+.card img {
+    /* width: auto; */
+    /* border-top-left-radius: calc(0.25rem - 1px); */
+    /* border-top-right-radius: calc(0.25rem - 1px); */
+    vertical-align: middle;
+    border-style: none;
+    /* height: 20%; */
+    /* max-width: auto; */
+    /* max-height: 300px; */
+    height: 220px;
+    width: auto;
+    /* max-width: 200px; */
+    /* max-height: 200px; */
+    /* align-content: center; */
+    /* justify-content: center; */
+}
+
+#topbar,#headbar {
+    color: black;
+    padding: 10px;
+    background-color: #ddd;
+    /* -webkit-box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6); */
+    /* box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6); */
+    /* transition: 0.3s; */
+    box-sizing: content-box;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#topbar {
+	position: sticky;
+	z-index: 1080 !important;
+	display: flex;
+	justify-content: space-between;
+    top: 0;
+    flex-wrap: wrap;
+    padding-top: 0;
+    padding-bottom: 0;
+
+}
+
+body {
+    margin: 0;
+}
+
+
+input[placeholder] {
+    text-overflow: ellipsis;
+}
+
+::-moz-placeholder {
+    text-overflow: ellipsis;
+}
+
+/* firefox 19+ */
+
+input:-moz-placeholder {
+    text-overflow: ellipsis;
+}
+
+#author{
+    float: right;
+}
+
+#top-left {
+    display: flex;
+}
+
+#top-left span {
+	display: flex;
+	padding: 10px 4px 10px 0;
+}
+
+#version {
+	/* width: 36.5rem; */
+	/* line-height: 0; */
+	border-radius: 0.25rem;
+	/* text-align: center; */
+	font-size: 0.8rem;
+	/* border: 2px solid #666; */
+	padding: 2px 5px;
+	background: #ffb74d;
+	/* color: white; */
+	text-transform: uppercase;
+	/* top: -20px; */
+	top: -5px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.card p {
+    text-align: center;
+    align-self: center;
+    width: 100%;
+}
+
+.highlight {
+    background: yellow; 
+    font-weight: bold;
+  }
+  
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+    .card {
+        flex: 0 0 25%;
+        width: 25%;
+    }
+    .card img {
+        height: 180px;
+    }
+    #search {
+        width: 65vw
+    }
+    #myInput {
+        width: calc(65vw - 1.5rem)
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+    .card {
+        flex: 0 0 33.33%;
+        width: 33.33%;
+    }
+    .card img {
+        height: 140px;
+    }
+    #search {
+        width: 80vw
+    }
+    #myInput {
+        width: calc(80vw - 1.5rem)
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+    .card {
+        flex: 0 0 50%;
+        width: 50%;
+    }
+    .card img {
+        height: 100px;
+    }
+    #search {
+        width: 100vw
+    }
+    #myInput {
+        width: calc(100vw - 1.5rem)
+    }
+    .card br {
+        display: none;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+    .card img {
+        display: none;
+    }
+    .card {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+    .card p {
+        text-align: left;
+    }
+    #author
+    {
+        display: none;
+    }
 }
     /* Foundation v2.1.4 http://foundation.zurb.com */
 /* Artfully masterminded by ZURB  */
@@ -196,7 +401,7 @@ table td, table th { padding: 9px 10px; text-align: left; }
 	div.table-wrapper div.scrollable { margin-left: 35%; }
 	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
 	
-	table.responsive td, table.responsive th { position: relative; white-space: nowrap; overflow: hidden; }
+	table.responsive td, table.responsive th { white-space: nowrap; overflow: hidden; }
 	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
 
 
@@ -232,343 +437,44 @@ table td, table th { padding: 9px 10px; text-align: left; }
     
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="assets/js/script.js"></script>
+<script src="assets/js/responsive-tables.js"></script>
+
+
 <script type="text/javascript">
-    var headers = [["DL CA", "col-dl"], ["MIMO 4x4", "col-mimo"], ["UL", "col-ul"]];
-
-document.addEventListener('DOMContentLoaded', function() {
-  var myDropdown=document.getElementById("myDropdown");
-  //populate dropdown
-  for(let i=0;i<devices.length;i++)
-  {
-    let device=devices[i];
-    let anchor= document.createElement('a');
-    anchor.innerHTML=device.manufacturer + " " + device.name + " " + device.model;
-    anchor.href="javascript:void(0)";
-    anchor.addEventListener('mousedown', function(){
-      toggleDevice(device.model);
-    });
-    myDropdown.appendChild(anchor);
-  }
-});
-
-function showDropdown() {
-  document.getElementById("myDropdown").classList.remove("hidden");
-}
-
-function hideDropdown() {
-  document.getElementById("myDropdown").classList.add("hidden");
-}
-
-function filterFunction() {
-  var input, filter, a, i;
-  input = document.getElementById("myInput");
-  if (input.value.length > 0) {
-    showDropdown();
-    filter = input.value.toUpperCase();
-    filterSplitted = filter.split(" ");
-    div = document.getElementById("myDropdown");
-    a = div.getElementsByTagName("a");
-    search: for (i = 0; i < a.length; i++) {
-      txtValue = a[i].textContent || a[i].innerText;
-      for (j = 0; j < filterSplitted.length; j++) {
-        if (txtValue.toUpperCase().indexOf(filterSplitted[j]) == -1) {
-          a[i].classList.add('hidden');
-          continue search;
-        }
-      }
-      a[i].classList.remove('hidden');
-    }
-  } else
-    hideDropdown()
-}
-
-function toggleTable(id, parent) {
-  //var e = document.getElementById(parent);
-  document.querySelectorAll('.table-container').forEach(function (table) {
-    if (table.id != id) {
-      table.classList.add('hidden');
-    } else
-      table.classList.remove('hidden');
-  })
-
-  document.querySelectorAll('.selection').forEach(function (selector) {
-    console.log(selector)
-    if (selector.classList.contains(id)) {
-      selector.classList.add('selected')
-    } else
-      selector.classList.remove('selected')
-  })
-}
-
-function toggleDevice(id) {
-  hideDropdown();
-
-  device = getDevice(id, devices);
-
-  var listContainer=document.getElementById('list_container');
-  listContainer.innerHTML = ''
-  var h2 = document.createElement('h2');
-  h2.innerHTML = device.manufacturer + " " + device.name + " " + device.model;
-  var dev=document.getElementById('device')
-  dev.innerHTML='';
-  dev.appendChild(h2);
-  var div=document.getElementById('listitem');
-  div.innerHTML=''
-
-  for (let i = 0; i < device.list.length; i++) {
-    let anchor= document.createElement('a');
-    span=document.createElement('span')
-    span.className="selection " + device.list[i].name;
-    
-    span.innerHTML=device.list[i].name;
-    anchor.href ="javascript:void(0)"
-    anchor.addEventListener('click', function(){
-      toggleTable(device.list[i].name);});
-    let tbl = tableCreate(device.list[i]);
-    let tblDiv=document.createElement('div');
-    tblDiv.className="table-container";
-    tblDiv.id = device.list[i].name;
-
-    if(i>0)
-    {
-      tblDiv.classList.add("hidden");
-    }
-    else
-      span.classList.add("selected");
-    anchor.appendChild(span);
-    div.appendChild(anchor);
-    tblDiv.appendChild(tbl);
-    listContainer.appendChild(tblDiv);
-  }
-
-  window.dispatchEvent(new Event('editTable'));//  document.querySelectorAll('.device').forEach(function(device) {
-  //    if (device.id != id) {
-  //      device.classList.add('hidden');
-  //    } else
-  //      device.classList.remove('hidden');
-  //  })
-}
-
-function getDevice(id, device) {
-  for (var i = 0; i < device.length; i++) {
-    if (device[i].model == id) { return device[i]; }
-  }
-}
-
-function tableCreate(list) {
-  tbl = document.createElement('table');
-  tbl.className = 'responsive table-striped';
-  //header
-  var columnCount = headers.length;
-
-
-
-  var combo = list.combo
-  for (let i = 0; i < combo.length; i++) {
-    let tr = tbl.insertRow(-1);
-    comboResult = convertCombos(combo[i]);
-    for (let j = 0; j < columnCount; j++) {
-      let td = tr.insertCell(-1);
-      td.innerHTML = comboResult[j];
-    }
-  }
-
-  let thead = document.createElement('thead');
-  let row = document.createElement('tr')
-  for (let i = 0; i < columnCount; i++) {
-    let headerCell = document.createElement("TH");
-    headerCell.innerHTML = headers[i][0];
-    headerCell.className = headers[i][1];
-    row.appendChild(headerCell);
-  }
-  thead.appendChild(row)
-  tbl.appendChild(thead)
-  return tbl;
-}
-
-function convertCombos(combo) {
-  var dl = combo.dl;
-  var mimo = combo.mimo;
-  var ul = combo.ul;
-
-  var resultdl = "";
-  var resultmimo = "";
-  var comboLenght = dl.length;
-  var mimoLenght = mimo.length;
-
-  var ulLenght = ul.length;
-  var resultUl = "";
-
-  var i = 0;
-  while (true) {
-    resultdl += "<span class=\"B" + parseInt(dl[i]) + "\">" + parseInt(dl[i]) + "</span>";
-
-    if (++i < comboLenght) {
-      resultdl += " + ";
-    }
-    else break;
-  }
-
-  var previous = false;
-  for (i = 0; i < mimoLenght; i++) {
-
-    if (previous)
-      resultmimo += ", ";
-    var prev = false;
-
-    for (var j = 0; j < comboLenght; j++) {
-      if (mimo[i].charAt(j) == '4') {
-        if (prev)
-          resultmimo += " + ";
-        resultmimo += "<span class=\"B" + parseInt(dl[j]) + "\">" + parseInt(dl[j]) + "</span>";
-        previous = prev = true;
-      }
-    }
-  }
-  resultmimo = resultmimo.substring(0, resultmimo.length - 2);
-
-  i = 0;
-  while (true) {
-    prev = false;
-    for (var j = 0; j < comboLenght; j++) {
-      if (ul[i].charAt(j) != '0') {
-        if (prev)
-          resultUl += " + ";
-        resultUl += "<span class=\"B" + parseInt(dl[j]) + "\">" + parseInt(dl[j]) + "</span>";
-        prev = true;
-      }
-    }
-    if (++i < ulLenght) {
-      resultUl += ", ";
-    }
-    else
-      break;
-
-  }
-
-  //console.log(resultdl)
-  return [resultdl, resultmimo, resultUl];
-}
-
-
-
-
-// for (var i = 0; i < e.childNodes.length; i++) {
-// if (e.childNodes[i].className == 'collapse')
-// {
-// if (e.childNodes[i].id != id)
-// e.childNodes[i].style.display = 'none';
-// else
-// e.childNodes[i].style.display = 'block';
-// }
-// else
-// if (e.childNodes[i].className == 'select_list')
-// {
-// e.querySelectorAll('selection')
-// if (e.childNodes[i].childNodes[0]..className == 'selection')
-// {
-// if (e.childNodes[i].class != id)
-// e.childNodes[i].classList.remove('selected');
-// else
-// e.childNodes[i].classList.add('selected');
-// }
-// }
-//}
-    (function($) {
-
-  $(document).ready(function() {
-    var responsiveBoundary = 768;
-    var switched = false;
-
-    var updateTables = function() {
-
-      if (window.matchMedia("(max-width:" + responsiveBoundary + "px)").matches && !switched ) {
-        switched = true;
-        $("table.responsive").each(function(i, element) {
-          splitTable($(element));
-        });
-
-        return true;
-      }
-      if (switched && window.matchMedia("(min-width:" + (responsiveBoundary-0.02) + "px)").matches) {
-        switched = false;
-        $("table.responsive").each(function(i, element) {
-          unsplitTable($(element));
-        });
-      }
-
-      $(window).trigger('responsiveTables:postDraw');
-    };
-
-    $(window).on('load',updateTables);
-    $(window).on("redraw",function(){switched=false;updateTables();}); // An event to listen for
-    $(window).on("resize", updateTables);
-    $(window).on("editTable", function(){switched=false;updateTables();});
-
-
-
-    function splitTable(original)
-    {
-      original.wrap("<div class='table-wrapper'>");
-
-      var copy = original.clone();
-      copy.find("td:not(:first-child), th:not(:first-child)").css("display", "none");
-      copy.removeClass("responsive");
-
-      original.closest(".table-wrapper").append(copy);
-      copy.wrap("<div class='pinned'>");
-      original.wrap("<div class='scrollable'>");
-
-      //setCellHeights(original, copy);
-      //setTableHeights(original, copy);
-    }
-
-    function unsplitTable(original) {
-      original.closest(".table-wrapper").find(".pinned").remove();
-      original.unwrap();
-      original.unwrap();
-    }
-
-    function setCellHeights(original, copy) {
-      $('tr', original).each(function(index){
-        oheight = $(this).height();
-        cheight = $('tr:eq('+index+')', copy).height();
-        height = (oheight > cheight ? oheight : cheight);
-        $('tr:eq('+index+') td', original).css('height', height+'px');
-        $('tr:eq('+index+') td', copy).css('height', height+'px');
-      });
-    }
-
-    function setTableHeights(original, copy) {
-      oheight = original.outerHeight();
-      cheight = copy.outerHeight();
-      height = (oheight > cheight ? oheight : cheight);
-      original.css('min-height', height+'px');
-      copy.css('min-height', height+'px');
-    }
-
-  });
-
-})(jQuery);
-
     
     
-    var devices=[{"name":"G7 ThinkQ","model":"G710EM","manufacturer":"LG","list":[{"name":"Hardware","combo":[{"dl":["1A","1A"],"mimo":[],"ul":["A0"]},{"dl":["3A","1A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["3A","3A","1A"],"mimo":[],"ul":["A00","00A"]},{"dl":["7A","1A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A","1A"],"mimo":["242","422"],"ul":["A00","00A","0A0"]},{"dl":["7A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["A00","00A"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["00A0","A000"]},{"dl":["8A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","7A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","7A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","7A","3A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["0A00","A000","00A0","000A"]},{"dl":["8A","7A","3A","3A"],"mimo":[],"ul":["A000","00A0","0A00"]},{"dl":["8A","7A","7A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["8A","7A","7A","3A"],"mimo":[],"ul":["A000","000A","0A00"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A00","00A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["00A0","0A00","A000","000A"]},{"dl":["28A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","3A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["28A","7A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","7A","1A"],"mimo":[],"ul":["0A0","00A","A00"]},{"dl":["28A","7A","3A"],"mimo":[],"ul":["A00","0A0","00A"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["00A0","000A","A000","0A00"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["0A00","000A","00A0"]},{"dl":["46A","1A"],"mimo":[],"ul":["0A"]},{"dl":["46A","3A"],"mimo":[],"ul":["0A"]},{"dl":["46A","7A"],"mimo":[],"ul":["0A"]},{"dl":["46A","7A","1A"],"mimo":[],"ul":["0A0","00A"]}],"flags":0},{"name":"Tim","combo":[{"dl":["3A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["000A","00A0","0A00"]},{"dl":["46A","3A"],"mimo":[],"ul":["0A"]},{"dl":["46A","7A"],"mimo":[],"ul":["0A"]}],"flags":0},{"name":"Vodafone","combo":[{"dl":["3A","1A"],"mimo":["42"],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["242","422"],"ul":["0A0","00A","A00"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["0A0","A00","00A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["242"],"ul":["A00","00A","0A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["000A","0A00","00A0","A000"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["0A00","00A0","000A"]}],"flags":0},{"name":"WindTre","combo":[{"dl":["3A","1A"],"mimo":["42"],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["42"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A","1A"],"mimo":["242","422"],"ul":["A00","00A","0A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["00A","0A0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","1A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A00","0A0","00A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["A000","0A00","000A","00A0"]}],"flags":0}]},{"name":"6/6T","model":"A6003/A6013","manufacturer":"OnePlus","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","1A"],"mimo":["24","42"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","422"],"ul":["00A","0A0","A00"]},{"dl":["7A","3A","3A"],"mimo":["422"],"ul":["A00","0A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["8A","3A","3A"],"mimo":["242"],"ul":["0A0","A00","00A"]},{"dl":["8A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["8A","7A","3A"],"mimo":["242"],"ul":["0A0","A00","00A"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["A00","00A","0A0"]},{"dl":["20A","7A","3A"],"mimo":["242"],"ul":["A00","00A","0A0"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["A000","0A00","00A0","000A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A","1A"],"mimo":["224","242"],"ul":["0A0","A00","00A"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["28A","7A","3A"],"mimo":["242"],"ul":["00A","0A0","A00"]},{"dl":["32A","1A"],"mimo":["24"],"ul":["0A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":["24"],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","1A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A"],"mimo":["224"],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","1A"],"mimo":[],"ul":["000A","00A0","0A00"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["00A0","000A","0A00"]},{"dl":["46A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A"],"mimo":["24"],"ul":["0A"]}],"flags":0}]},{"name":"S9","model":"SM-G960F","manufacturer":"Samsung","list":[{"name":"Italy","combo":[{"dl":["1A","1A"],"mimo":["44"],"ul":["0A"]},{"dl":["3A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["3A","1A","1A"],"mimo":[],"ul":["A00","00A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["0A"]},{"dl":["3A","3A","1A"],"mimo":["444"],"ul":["00A","0A0"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","1A","1A"],"mimo":[],"ul":["00A","A00"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["444"],"ul":["0A0","A00","00A"]},{"dl":["7A","3A","1A","1A"],"mimo":[],"ul":["A000","000A","0A00"]},{"dl":["7A","3A","3A"],"mimo":["444"],"ul":["A00","00A"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["0A"]},{"dl":["7A","7A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["7A","7A","3A"],"mimo":["444"],"ul":["0A0","00A"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["00A0","0A00","000A"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["000A","0A00"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A","1A"],"mimo":["244"],"ul":["A00","0A0","00A"]},{"dl":["20A","3A","3A"],"mimo":["244"],"ul":["A00","00A"]},{"dl":["20A","3A","3A","1A"],"mimo":[],"ul":["000A","00A0","A000"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","1A"],"mimo":["244"],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A"],"mimo":["244"],"ul":["00A","0A0","A00"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["A000","0A00","00A0","000A"]},{"dl":["32A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["32A","3A","3A"],"mimo":[],"ul":["00A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":["244"],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":["224"],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":["2244"],"ul":["000A","00A0","0A00"]}],"flags":0}]},{"name":"XZ1","model":"G8341","manufacturer":"Sony","list":[{"name":"Hardware","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","A0","0A"]},{"dl":["7A","3A","1A"],"mimo":[],"ul":["AA0","A00","00A","0A0"]},{"dl":["7A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["7A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["7A","7A","1A"],"mimo":[],"ul":["00A","A00"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["A00","A0A","00A"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["A000","000A","00A0"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["00A0","A000"]},{"dl":["8A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["0A0","A00","00A","AA0"]},{"dl":["8A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","7A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","7A","1A"],"mimo":[],"ul":["0A0","A00","00A"]},{"dl":["8A","7A","3A"],"mimo":[],"ul":["0A0","A00","A0A","00A","0AA"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["000A","A000","00A0","0A00"]},{"dl":["8A","7A","3A","3A"],"mimo":[],"ul":["A000","00A0","0A00"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["0A0","00A","AA0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":[],"ul":["0A0","A00","00A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["00A","A0A","A00","0A0"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["00A0","000A","A000","0A00"]},{"dl":["28A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["28A","3A","1A"],"mimo":[],"ul":["0A0","A00","00A"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["28A","7A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["28A","7A","3A"],"mimo":[],"ul":["0AA","00A","A00","0A0"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["00A0","000A","A000","0A00"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0AA","0A0"]}],"flags":0},{"name":"Tim/3/iliad","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","A0","0A"]},{"dl":["7A","3A","1A"],"mimo":[],"ul":["00A","AA0","A00","0A0"]},{"dl":["7A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["A00","A0A","00A"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["A000","00A0","000A"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["0A0","00A","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0A0","00A"]}],"flags":0},{"name":"Vodafone","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","A0","0A"]},{"dl":["7A","3A","1A"],"mimo":[],"ul":["00A","AA0","0A0","A00"]},{"dl":["8A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["A00","0A0","00A"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["0A00","000A","A000","00A0"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["0A0","00A","AA0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":[],"ul":["A00","0A0","00A"]},{"dl":["20A","7A","3A"],"mimo":["242"],"ul":["0A0","A00","00A","A0A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["A000","00A0","000A","0A00"]},{"dl":["28A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]}],"flags":0},{"name":"Wind","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","3A"],"mimo":["242"],"ul":["A00","0A0","00A"]}],"flags":0}]},{"name":"XZ2","model":"H8216","manufacturer":"Sony","list":[{"name":"Hardware","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["AA","0A","A0"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","A0","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["0A0","A0A","00A","A00","0AA","AA0"]},{"dl":["7A","3A","3A"],"mimo":["242","422"],"ul":["A00","0A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","7A","1A"],"mimo":[],"ul":["00A","A0A","A00"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["A0A","A00","00A"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["00A0","A000","000A"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["00A0","A000"]},{"dl":["8A","1A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["8A","3A","1A"],"mimo":["224","242"],"ul":["AA0","A00","0A0","A0A","0AA","00A"]},{"dl":["8A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","7A"],"mimo":[],"ul":["AA","0A","A0"]},{"dl":["8A","7A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["8A","7A","3A"],"mimo":["224","242"],"ul":["A00","A0A","0A0","0AA","00A"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["00A0","000A","A000","0A00"]},{"dl":["8A","7A","3A","3A"],"mimo":[],"ul":["A000","0A00","00A0"]},{"dl":["8A","7A","7A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["8A","7A","7A","3A"],"mimo":[],"ul":["000A","0A00","A000"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["A00","AA0","00A","0A0"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["A00","0A0","00A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A00","00A","A0A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["000A","0A00","00A0","A000"]},{"dl":["20A","8A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["28A","3A","1A"],"mimo":["242"],"ul":["00A","0A0","A00"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["28A","7A","1A"],"mimo":["242"],"ul":["A00","00A","0A0","0AA"]},{"dl":["28A","7A","3A"],"mimo":["224","242"],"ul":["0AA","A00","00A","0A0"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["A000","00A0","000A","0A00"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0AA","0A0","00A"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["0A00","00A0","000A"]},{"dl":["46A","1A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","28A"],"mimo":[],"ul":["0A"]}],"flags":0},{"name":"Tim","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["A0","0A","AA"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["A0A","0A0","0AA","A00","AA0","00A"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["AA","A0","0A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A0A","0A0","A00","00A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0","0AA"]}],"flags":0},{"name":"Tre","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["A00","00A","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A00","0A0","00A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","0A"]}],"flags":0},{"name":"Vodafone","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["AA","A0","0A"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["AA","A0","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","A0","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["00A","A00","0AA","0A0","A0A","AA0"]},{"dl":["8A","1A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["8A","3A","1A"],"mimo":["224","242"],"ul":["0AA","A0A","A00","0A0","00A","AA0"]},{"dl":["8A","7A"],"mimo":[],"ul":["A0","AA","0A"]},{"dl":["8A","7A","1A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["8A","7A","3A"],"mimo":["224","242"],"ul":["A00","0A0","A0A","00A","0AA"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["A000","00A0","0A00","000A"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["00A","0A0","A00","AA0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A0A","0A0","00A","A00"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["00A0","0A00","000A","A000"]},{"dl":["20A","8A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["28A","3A","1A"],"mimo":["242"],"ul":["0A0","00A","A00"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0","0AA"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["00A0","000A","0A00"]}],"flags":0},{"name":"Wind/Iliad","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","A0","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["0A0","AA0","00A","A00"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["0A0","A00","AA0","00A"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A00","00A","A0A"]}],"flags":0}]},{"name":"XZ3","model":"H8416","manufacturer":"Sony","list":[{"name":"Hardware","combo":[{"dl":["1A","1A"],"mimo":[],"ul":["A0"]},{"dl":["3A","1A"],"mimo":["24","44"],"ul":["0A","AA","A0"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["3A","3A","1A"],"mimo":["224","422"],"ul":["00A","A00"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["A0","AA","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["A0","AA","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["0AA","AA0","00A","A00","0A0","A0A"]},{"dl":["7A","3A","3A"],"mimo":["242","422"],"ul":["0A0","A00"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","7A","1A"],"mimo":[],"ul":["A0A","A00","00A"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["A0A","A00","00A"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["000A","00A0","A000"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["00A0","A000"]},{"dl":["8A","1A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["8A","3A","1A"],"mimo":["224","242"],"ul":["A00","AA0","00A","0AA","A0A","0A0"]},{"dl":["8A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","3A","3A","1A"],"mimo":[],"ul":["A000","000A","0A00"]},{"dl":["8A","7A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["8A","7A","1A"],"mimo":["224"],"ul":["0A0","A00","00A"]},{"dl":["8A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A00","00A","0AA","A0A"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["A000","00A0","0A00","000A"]},{"dl":["8A","7A","3A","3A"],"mimo":[],"ul":["A000","00A0","0A00"]},{"dl":["8A","7A","7A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","7A","7A","3A"],"mimo":[],"ul":["000A","A000","0A00"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["AA0","0A0","A00","00A"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["A00","0A0","00A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["00A","0A0","A0A","A00"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["0A00","00A0","A000","000A"]},{"dl":["20A","8A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["28A","3A","1A"],"mimo":["242"],"ul":["0A0","A00","00A"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["AA","A0","0A"]},{"dl":["28A","7A","1A"],"mimo":["242"],"ul":["0AA","0A0","00A","A00"]},{"dl":["28A","7A","3A"],"mimo":["224","242"],"ul":["0A0","00A","0AA","A00"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["A000","0A00","000A","00A0"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","1A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0A0","00A","0AA"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["000A","00A0","0A00"]},{"dl":["46A","1A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A","1A"],"mimo":["224","242"],"ul":["00A","0A0"]}],"flags":0},{"name":"Tim","combo":[{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A00","0A0","00A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["00A0","000A","0A00"]},{"dl":["46A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A"],"mimo":["24"],"ul":["0A"]}],"flags":0},{"name":"Tre","combo":[{"dl":["3A","1A"],"mimo":["24","44"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","0A"]}],"flags":0},{"name":"Vodafone","combo":[{"dl":["3A","1A"],"mimo":["24","44"],"ul":["AA","A0","0A"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["A0","AA","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["00A","AA0","A00","0A0","A0A","0AA"]},{"dl":["8A","1A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["8A","3A","1A"],"mimo":["224","242"],"ul":["A0A","00A","AA0","0AA","0A0","A00"]},{"dl":["8A","7A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["8A","7A","1A"],"mimo":["224"],"ul":["A00","00A","0A0"]},{"dl":["8A","7A","3A"],"mimo":["224","242"],"ul":["0AA","A0A","00A","A00","0A0"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["000A","A000","0A00","00A0"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["AA0","0A0","A00","00A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A0A","A00","0A0","00A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["0A00","000A","A000","00A0"]},{"dl":["20A","8A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["28A","3A","1A"],"mimo":["242"],"ul":["0A0","A00","00A"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["28A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A00","00A","0AA"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","1A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0AA","0A0"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["00A0","0A00","000A"]}],"flags":0},{"name":"Wind/Iliad","combo":[{"dl":["3A","1A"],"mimo":["24","44"],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["0A","AA","A0"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["AA0","0A0","A00","00A"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["0A0","A00","AA0","00A"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["00A","A00","0A0","A0A"]}],"flags":0}]},{"name":" ","model":"Mi 8","manufacturer":"Xiaomi","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":[],"ul":["0A"]},{"dl":["7A","7A"],"mimo":[],"ul":["0A"]},{"dl":["8A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["00A","A00","0A0"]}],"flags":0}]},{"name":" ","model":"Mi 9","manufacturer":"Xiaomi","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":[],"ul":["0A"]},{"dl":["3A","3A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["7A","1A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["7A","3A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["0A"]},{"dl":["8A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["0A0","A00","00A"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["00A","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","3A"],"mimo":[],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["000A","A000","00A0","0A00"]},{"dl":["28A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A","1A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["28A","7A","1A"],"mimo":["242"],"ul":["00A","0A0","A00"]},{"dl":["28A","7A","3A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["00A0","0A00","000A","A000"]}],"flags":0}]},{"name":" ","model":"Mi mix 2","manufacturer":"Xiaomi","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":[],"ul":["0A"]},{"dl":["7A","7A"],"mimo":[],"ul":["0A"]},{"dl":["8A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","7A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","7A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","7A"],"mimo":[],"ul":["0A","A0"]}],"flags":0}]},{"name":" ","model":"Mi Note 3","manufacturer":"Xiaomi","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]}],"flags":0}]}]
-</script>
+    var devices=[{"name":"Phone","model":"PH-1","manufacturer":"Essential","img":"Essential_Phone.png","soc":"Snapdragon 835","year":"2017","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":[],"ul":["0A"]},{"dl":["7A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["7A","7A"],"mimo":[],"ul":["0A"]},{"dl":["8A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","7A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["0A0","A00","00A"]},{"dl":["20A","7A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":[],"ul":["0A0","A00","00A"]},{"dl":["20A","7A","3A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["28A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","7A"],"mimo":[],"ul":["0A","A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]}],"flags":0}]},{"name":"G7 ThinkQ","model":"G710EM","manufacturer":"LG","img":"LG_G7.png","soc":"Snapdragon 845","year":"2018","list":[{"name":"Hardware","combo":[{"dl":["1A","1A"],"mimo":[],"ul":["A0"]},{"dl":["3A","1A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["3A","3A","1A"],"mimo":[],"ul":["00A","A00"]},{"dl":["7A","1A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["242","422"],"ul":["00A","0A0","A00"]},{"dl":["7A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["00A","A00"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["00A0","A000"]},{"dl":["8A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","7A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","7A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","7A","3A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["0A00","000A","A000","00A0"]},{"dl":["8A","7A","3A","3A"],"mimo":[],"ul":["0A00","00A0","A000"]},{"dl":["8A","7A","7A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","7A","7A","3A"],"mimo":[],"ul":["A000","000A","0A00"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["00A","0A0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","1A"],"mimo":["242"],"ul":["0A0","A00","00A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["00A0","000A","0A00","A000"]},{"dl":["28A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","3A","1A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["28A","7A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","7A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["28A","7A","3A"],"mimo":[],"ul":["A00","0A0","00A"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["000A","0A00","00A0","A000"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["000A","00A0","0A00"]},{"dl":["46A","1A"],"mimo":[],"ul":["0A"]},{"dl":["46A","3A"],"mimo":[],"ul":["0A"]},{"dl":["46A","7A"],"mimo":[],"ul":["0A"]},{"dl":["46A","7A","1A"],"mimo":[],"ul":["00A","0A0"]}],"flags":0},{"name":"Tim","combo":[{"dl":["3A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["00A","A00","0A0"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["00A0","000A","0A00"]},{"dl":["46A","3A"],"mimo":[],"ul":["0A"]},{"dl":["46A","7A"],"mimo":[],"ul":["0A"]}],"flags":0},{"name":"Vodafone","combo":[{"dl":["3A","1A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["42"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["242","422"],"ul":["00A","A00","0A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["00A","0A0","A00"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["00A0","A000","0A00","000A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["0A00","00A0","000A"]}],"flags":0},{"name":"WindTre","combo":[{"dl":["3A","1A"],"mimo":["42"],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["242","422"],"ul":["0A0","00A","A00"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["00A","A00","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["0A00","000A","A000","00A0"]}],"flags":0}]},{"name":"6/6T","model":"A6003/A6013","manufacturer":"OnePlus","img":"OnePlus_6.png","soc":"Snapdragon 845","year":"2018","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","1A"],"mimo":["24","42"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["42"],"ul":["A0","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","422"],"ul":["0A0","00A","A00"]},{"dl":["7A","3A","3A"],"mimo":["422"],"ul":["0A0","A00"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["8A","3A","3A"],"mimo":["242"],"ul":["0A0","00A","A00"]},{"dl":["8A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["8A","7A","3A"],"mimo":["242"],"ul":["00A","0A0","A00"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A","1A"],"mimo":["224","242"],"ul":["A00","00A","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","A00","00A"]},{"dl":["20A","7A","3A"],"mimo":["242"],"ul":["0A0","A00","00A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["000A","0A00","00A0","A000"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A","1A"],"mimo":["224","242"],"ul":["0A0","A00","00A"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","7A","3A"],"mimo":["242"],"ul":["0A0","00A","A00"]},{"dl":["32A","1A"],"mimo":["24"],"ul":["0A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":["24"],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A"],"mimo":["224"],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","1A"],"mimo":[],"ul":["00A0","0A00","000A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["0A00","00A0","000A"]},{"dl":["46A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A"],"mimo":["24"],"ul":["0A"]}],"flags":0}]},{"name":"S9","model":"SM-G960F","manufacturer":"Samsung","img":"Samsung_Galaxy_S9.png","soc":"Exynos 9810","year":"2018","list":[{"name":"Italy","combo":[{"dl":["1A","1A"],"mimo":["44"],"ul":["0A"]},{"dl":["3A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["3A","1A","1A"],"mimo":[],"ul":["00A","A00"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["0A"]},{"dl":["3A","3A","1A"],"mimo":["444"],"ul":["0A0","00A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","1A","1A"],"mimo":[],"ul":["00A","A00"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["444"],"ul":["0A0","A00","00A"]},{"dl":["7A","3A","1A","1A"],"mimo":[],"ul":["A000","0A00","000A"]},{"dl":["7A","3A","3A"],"mimo":["444"],"ul":["A00","00A"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["0A"]},{"dl":["7A","7A","1A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["7A","7A","3A"],"mimo":["444"],"ul":["00A","0A0"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["00A0","0A00","000A"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["0A00","000A"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A","1A"],"mimo":["244"],"ul":["A00","0A0","00A"]},{"dl":["20A","3A","3A"],"mimo":["244"],"ul":["A00","00A"]},{"dl":["20A","3A","3A","1A"],"mimo":[],"ul":["000A","00A0","A000"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["244"],"ul":["0A0","A00","00A"]},{"dl":["20A","7A","3A"],"mimo":["244"],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["A000","0A00","00A0","000A"]},{"dl":["32A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["32A","3A","3A"],"mimo":[],"ul":["00A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":["244"],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":["224"],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":["2244"],"ul":["000A","00A0","0A00"]}],"flags":0}]},{"name":"Xperia XZ1","model":"G8341","manufacturer":"Sony","img":"Sony_Xperia_XZ1.png","soc":"Snapdragon 835","year":"2017","list":[{"name":"Hardware","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["0A","A0","AA"]},{"dl":["7A","3A","1A"],"mimo":[],"ul":["A00","0A0","AA0","00A"]},{"dl":["7A","3A","3A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["7A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["7A","7A","1A"],"mimo":[],"ul":["A00","00A"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["00A","A00","A0A"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["00A0","A000","000A"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["A000","00A0"]},{"dl":["8A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["AA0","00A","A00","0A0"]},{"dl":["8A","3A","3A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["8A","7A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","7A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","7A","3A"],"mimo":[],"ul":["00A","A0A","A00","0A0","0AA"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["00A0","000A","A000","0A00"]},{"dl":["8A","7A","3A","3A"],"mimo":[],"ul":["A000","0A00","00A0"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["0A0","A00","AA0","00A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A0A","A00","00A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["0A00","A000","00A0","000A"]},{"dl":["28A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","7A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["28A","7A","3A"],"mimo":[],"ul":["00A","A00","0A0","0AA"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["00A0","A000","000A","0A00"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0","0AA"]}],"flags":0},{"name":"Tim/3/iliad","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["0A","AA","A0"]},{"dl":["7A","3A","1A"],"mimo":[],"ul":["0A0","AA0","00A","A00"]},{"dl":["7A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["00A","A00","A0A"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["00A0","000A","A000"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["A00","0A0","00A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A"],"mimo":["242"],"ul":["0A0","A00","00A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0"]}],"flags":0},{"name":"Vodafone","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["0A","A0","AA"]},{"dl":["7A","3A","1A"],"mimo":[],"ul":["AA0","00A","A00","0A0"]},{"dl":["8A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["A000","00A0","000A","0A00"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["AA0","00A","0A0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":[],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["242"],"ul":["A0A","A00","0A0","00A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["00A0","000A","A000","0A00"]},{"dl":["28A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A","1A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]}],"flags":0},{"name":"Wind","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","3A"],"mimo":["242"],"ul":["00A","0A0","A00"]}],"flags":0}]},{"name":"Xperia XZ2","model":"H8216","manufacturer":"Sony","img":"Sony_Xperia_XZ2.png","soc":"Snapdragon 845","year":"2018","list":[{"name":"Hardware","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["A0","0A","AA"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["A0A","0AA","A00","AA0","00A","0A0"]},{"dl":["7A","3A","3A"],"mimo":["242","422"],"ul":["A00","0A0"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","7A","1A"],"mimo":[],"ul":["A00","00A","A0A"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["00A","A0A","A00"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["000A","A000","00A0"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["00A0","A000"]},{"dl":["8A","1A"],"mimo":["24"],"ul":["AA","A0","0A"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["8A","3A","1A"],"mimo":["224","242"],"ul":["AA0","A0A","00A","A00","0A0","0AA"]},{"dl":["8A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","7A"],"mimo":[],"ul":["0A","A0","AA"]},{"dl":["8A","7A","1A"],"mimo":[],"ul":["A00","00A","0A0"]},{"dl":["8A","7A","3A"],"mimo":["224","242"],"ul":["00A","0AA","A0A","0A0","A00"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["000A","0A00","A000","00A0"]},{"dl":["8A","7A","3A","3A"],"mimo":[],"ul":["0A00","A000","00A0"]},{"dl":["8A","7A","7A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["8A","7A","7A","3A"],"mimo":[],"ul":["000A","A000","0A00"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["AA","A0","0A"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["AA0","00A","0A0","A00"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A00","00A","A0A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["A000","0A00","000A","00A0"]},{"dl":["20A","8A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["28A","3A","1A"],"mimo":["242"],"ul":["A00","00A","0A0"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["28A","7A","1A"],"mimo":["242"],"ul":["0A0","0AA","00A","A00"]},{"dl":["28A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A00","0AA","00A"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["0A00","00A0","000A","A000"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0","0AA"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["00A0","0A00","000A"]},{"dl":["46A","1A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","28A"],"mimo":[],"ul":["0A"]}],"flags":0},{"name":"Tim","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["A0","0A","AA"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["AA0","A00","00A","0AA","A0A","0A0"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["AA","0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","A00","00A","A0A"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0AA","0A0"]}],"flags":0},{"name":"Tre","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A00","0A0","00A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["0A","A0"]}],"flags":0},{"name":"Vodafone","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["AA","A0","0A"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","A0","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["A0A","00A","AA0","0AA","A00","0A0"]},{"dl":["8A","1A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["8A","3A","1A"],"mimo":["224","242"],"ul":["00A","A0A","0AA","AA0","0A0","A00"]},{"dl":["8A","7A"],"mimo":[],"ul":["A0","AA","0A"]},{"dl":["8A","7A","1A"],"mimo":[],"ul":["0A0","A00","00A"]},{"dl":["8A","7A","3A"],"mimo":["224","242"],"ul":["00A","A0A","0A0","0AA","A00"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["A000","0A00","000A","00A0"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["A00","00A","0A0","AA0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["00A","A00","0A0"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A00","0A0","00A","A0A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["0A00","00A0","A000","000A"]},{"dl":["20A","8A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["28A","3A","1A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0AA","0A0"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["0A00","000A","00A0"]}],"flags":0},{"name":"Wind/Iliad","combo":[{"dl":["3A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","1A"],"mimo":["44"],"ul":["A0","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["AA","0A","A0"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["0A0","A00","00A","AA0"]},{"dl":["20A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["0A0","A00","AA0","00A"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A00","00A","A0A","0A0"]}],"flags":0}]},{"name":"Xperia XZ3","model":"H8416","manufacturer":"Sony","img":"Sony_Xperia_XZ3.png","soc":"Snapdragon 845","year":"2018","list":[{"name":"Hardware","combo":[{"dl":["1A","1A"],"mimo":[],"ul":["A0"]},{"dl":["3A","1A"],"mimo":["24","44"],"ul":["AA","A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["3A","3A","1A"],"mimo":["224","422"],"ul":["00A","A00"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["A0","AA","0A"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["0A","AA","A0"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["0A0","A0A","A00","0AA","00A","AA0"]},{"dl":["7A","3A","3A"],"mimo":["242","422"],"ul":["0A0","A00"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","7A","1A"],"mimo":[],"ul":["A0A","A00","00A"]},{"dl":["7A","7A","3A"],"mimo":[],"ul":["A0A","00A","A00"]},{"dl":["7A","7A","3A","1A"],"mimo":[],"ul":["000A","00A0","A000"]},{"dl":["7A","7A","3A","3A"],"mimo":[],"ul":["A000","00A0"]},{"dl":["8A","1A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["8A","3A","1A"],"mimo":["224","242"],"ul":["A00","AA0","A0A","00A","0AA","0A0"]},{"dl":["8A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["8A","3A","3A","1A"],"mimo":[],"ul":["A000","000A","0A00"]},{"dl":["8A","7A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["8A","7A","1A"],"mimo":["224"],"ul":["00A","A00","0A0"]},{"dl":["8A","7A","3A"],"mimo":["224","242"],"ul":["A0A","A00","00A","0A0","0AA"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["A000","000A","00A0","0A00"]},{"dl":["8A","7A","3A","3A"],"mimo":[],"ul":["0A00","00A0","A000"]},{"dl":["8A","7A","7A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["8A","7A","7A","3A"],"mimo":[],"ul":["0A00","A000","000A"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["00A","AA0","A00","0A0"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["A00","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["00A","0A0","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A0A","A00","0A0","00A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["000A","A000","0A00","00A0"]},{"dl":["20A","8A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["28A","3A","1A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["0A","AA","A0"]},{"dl":["28A","7A","1A"],"mimo":["242"],"ul":["A00","0A0","0AA","00A"]},{"dl":["28A","7A","3A"],"mimo":["224","242"],"ul":["0AA","0A0","00A","A00"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["0A00","000A","00A0","A000"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","1A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0AA","00A","0A0"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["000A","00A0","0A00"]},{"dl":["46A","1A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A","1A"],"mimo":["224","242"],"ul":["0A0","00A"]}],"flags":0},{"name":"Tim","combo":[{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["00A0","000A","0A00"]},{"dl":["46A","3A"],"mimo":["24"],"ul":["0A"]},{"dl":["46A","7A"],"mimo":["24"],"ul":["0A"]}],"flags":0},{"name":"Tre","combo":[{"dl":["3A","1A"],"mimo":["24","44"],"ul":["A0","0A"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["0A","A0"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["A00","00A","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","00A","A00"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["00A","A00","0A0"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["A0","0A"]}],"flags":0},{"name":"Vodafone","combo":[{"dl":["3A","1A"],"mimo":["24","44"],"ul":["AA","A0","0A"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["A0","0A","AA"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["A0","AA","0A"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["0AA","00A","AA0","A00","0A0","A0A"]},{"dl":["8A","1A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["8A","3A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["8A","3A","1A"],"mimo":["224","242"],"ul":["AA0","A00","A0A","0AA","0A0","00A"]},{"dl":["8A","7A"],"mimo":["24"],"ul":["AA","A0","0A"]},{"dl":["8A","7A","1A"],"mimo":["224"],"ul":["00A","0A0","A00"]},{"dl":["8A","7A","3A"],"mimo":["224","242"],"ul":["0AA","A0A","00A","0A0","A00"]},{"dl":["8A","7A","3A","1A"],"mimo":[],"ul":["A000","0A00","00A0","000A"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["AA0","00A","A00","0A0"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["20A","7A","1A"],"mimo":["224","242"],"ul":["0A0","A00","00A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["A0A","0A0","A00","00A"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["0A00","000A","A000","00A0"]},{"dl":["20A","8A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","1A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":["24"],"ul":["0A","A0","AA"]},{"dl":["28A","3A","1A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["A0","0A","AA"]},{"dl":["28A","7A","3A"],"mimo":["224","242"],"ul":["0A0","00A","0AA","A00"]},{"dl":["32A","3A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A"],"mimo":[],"ul":["0A"]},{"dl":["32A","7A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["32A","7A","3A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A"],"mimo":[],"ul":["0A"]},{"dl":["32A","20A","3A"],"mimo":[],"ul":["0AA","00A","0A0"]},{"dl":["32A","20A","7A"],"mimo":[],"ul":["00A","0A0"]},{"dl":["32A","20A","7A","3A"],"mimo":[],"ul":["00A0","000A","0A00"]}],"flags":0},{"name":"Wind/Iliad","combo":[{"dl":["3A","1A"],"mimo":["24","44"],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":["44"],"ul":["A0"]},{"dl":["7A","1A"],"mimo":["24","42","44"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":["24","42","44"],"ul":["0A","AA","A0"]},{"dl":["7A","3A","1A"],"mimo":["224","242","422"],"ul":["00A","AA0","0A0","A00"]},{"dl":["20A","1A"],"mimo":["24"],"ul":["0A","A0"]},{"dl":["20A","3A"],"mimo":["24"],"ul":["A0","AA","0A"]},{"dl":["20A","3A","1A"],"mimo":["242"],"ul":["0A0","AA0","A00","00A"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["0A0","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","3A"],"mimo":["224","242"],"ul":["00A","A00","A0A","0A0"]}],"flags":0}]},{"name":" ","model":"Mi 8","manufacturer":"Xiaomi","img":"Xiaomi_Mi8.png","soc":"Snapdragon 845","year":"2018","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":[],"ul":["0A"]},{"dl":["7A","7A"],"mimo":[],"ul":["0A"]},{"dl":["8A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["0A0","A00","00A"]}],"flags":0}]},{"name":" ","model":"Mi 9","manufacturer":"Xiaomi","img":"Xiaomi_Mi9.png","soc":"Snapdragon 855","year":"2019","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["3A","3A"],"mimo":[],"ul":["0A"]},{"dl":["3A","3A","1A"],"mimo":[],"ul":["0A0","00A"]},{"dl":["7A","1A"],"mimo":["42"],"ul":["0A","A0"]},{"dl":["7A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["7A","3A","1A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["7A","7A"],"mimo":["44"],"ul":["0A"]},{"dl":["8A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","3A","1A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["20A","3A","3A"],"mimo":[],"ul":["00A","A00"]},{"dl":["20A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["20A","7A","3A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["20A","7A","3A","1A"],"mimo":[],"ul":["000A","A000","00A0","0A00"]},{"dl":["28A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","3A","1A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["28A","7A"],"mimo":["24"],"ul":["A0","0A"]},{"dl":["28A","7A","1A"],"mimo":["242"],"ul":["A00","0A0","00A"]},{"dl":["28A","7A","3A"],"mimo":[],"ul":["00A","A00","0A0"]},{"dl":["28A","7A","3A","1A"],"mimo":[],"ul":["000A","0A00","00A0","A000"]}],"flags":0}]},{"name":" ","model":"Mi mix 2","manufacturer":"Xiaomi","img":"Xiaomi_MiMix2.png","soc":"Snapdragon 835","year":"2017","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":[],"ul":["0A"]},{"dl":["7A","7A"],"mimo":[],"ul":["0A"]},{"dl":["8A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["A00","0A0","00A"]},{"dl":["8A","7A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["20A","7A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","7A"],"mimo":[],"ul":["0A","A0"]}],"flags":0}]},{"name":" ","model":"Mi mix 2s","manufacturer":"Xiaomi","img":"Xiaomi_MiMix2s.png","soc":"Snapdragon 845","year":"2018","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["3A","3A"],"mimo":[],"ul":["0A"]},{"dl":["7A","7A"],"mimo":[],"ul":["0A"]},{"dl":["8A","1A"],"mimo":[],"ul":["0A","A0"]},{"dl":["8A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["8A","3A","1A"],"mimo":[],"ul":["00A","0A0","A00"]},{"dl":["8A","7A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","3A"],"mimo":[],"ul":["A0","0A"]},{"dl":["20A","7A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","1A"],"mimo":[],"ul":["A0","0A"]},{"dl":["28A","3A"],"mimo":[],"ul":["0A","A0"]},{"dl":["28A","7A"],"mimo":[],"ul":["0A","A0"]}],"flags":0}]},{"name":" ","model":"Mi Note 3","manufacturer":"Xiaomi","img":"Xiaomi_MiNote3.png","soc":"Snapdragon 660","year":"2017","list":[{"name":"Italy","combo":[{"dl":["3A","1A"],"mimo":[],"ul":["A0","0A"]}],"flags":0}]}]
+   </script>
 <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
-<body>
+<body class="hidden">
+
+    <div id="topbar" class="hidden" >
+    <div id="top-left">
+    <a href="javascript:void(0)" onclick="closeTable(true)">
+        <span class="material-icons">arrow_back</span>
+        <span class="hidden">Back</span>
+    </a>
+    <span id="device"></span>
+    </div>
+        <div id="listitem" class="listitem" ></div>
+    </div>
+    <div id="headbar">
+    <span id="name">CA Combo</span>
+    <sup id="version">Beta 0.2</sup>
+    <span id="author">by handymenny</span></div>
     <div class="dropdown">
     <div id="search">
          <i class="material-icons">search</i>
         <input type="text" placeholder="search smartphone" 
-            onkeyup="filterFunction()" onblur="hideDropdown()" id="myInput"></div>
-        <div id="myDropdown" class="dropdown-content hidden" ></div>
+            onkeyup="filterFunction()" id="myInput"></div>
     </div>
 
-    <div id="device" class="device" ></div>
-    <div id="listitem" class="listitem" ></div>
+    <div id="myDropdown" class="dropdown-content" ></div>
+
+
     <div id="list_container"></div>
 </body>
 </html>
