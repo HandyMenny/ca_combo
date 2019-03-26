@@ -8,7 +8,7 @@ window.onpopstate = function (event) {
     closeTable(false);
   }
   else {
-    if (toggleDevice(event.state.device) == null) {
+    if (toggleDevice(event.state.device) == false) {
       historyNull()
     };
   }
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function () {
     myDropdown.appendChild(anchor);
     state.device = getUrlParameter("device");
     if (state.device != null) {
-      if (toggleDevice(state.device) == null) {
+      if (toggleDevice(state.device) == false) {
         historyNull()
       };
     }
@@ -113,7 +113,7 @@ function toggleTable(id, parent) {
 function toggleDevice(id) {
   device = getDevice(id, devices);
   if (device == null)
-    return null;
+    return false;
 
   hide(myDropdown);
   hide(document.getElementById("search"))
@@ -153,6 +153,7 @@ function toggleDevice(id) {
     div.appendChild(anchor);
     tblDiv.appendChild(tbl);
     listContainer.appendChild(tblDiv);
+    return true;
   }
 
   window.dispatchEvent(new Event('editTable'));//  document.querySelectorAll('.device').forEach(function(device) {
@@ -284,6 +285,7 @@ function updateState() {
 }
 
 function historyNull() {
+  console.log("hystorynull")
   state.device = null;
   history.pushState(state, "", "?");
 }
