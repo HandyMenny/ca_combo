@@ -30,7 +30,6 @@ function getUrlParameter(sParam) {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-
   myDropdown = document.getElementById("myDropdown");
 
   //populate dropdown
@@ -56,12 +55,12 @@ document.addEventListener('DOMContentLoaded', function () {
     //anchor.appendChild(div)
     myDropdown.appendChild(anchor);
     state.device = getUrlParameter("device");
-    if (state.device != null) {
-      if (toggleDevice(state.device) == false) {
-        historyNull()
-      };
+    if (state.device != null && toggleDevice(state.device)== false) {
+        historyNull();
+		  show(document.body);
     }
-    show(document.body);
+	else
+		setTimeout( function() { window.dispatchEvent(new Event('load')); show(document.body)}, 100);
   }
 });
 
@@ -153,15 +152,16 @@ function toggleDevice(id) {
     div.appendChild(anchor);
     tblDiv.appendChild(tbl);
     listContainer.appendChild(tblDiv);
-    return true;
   }
 
-  window.dispatchEvent(new Event('editTable'));//  document.querySelectorAll('.device').forEach(function(device) {
+  window.dispatchEvent(new Event('editTable'));
+  //  document.querySelectorAll('.device').forEach(function(device) {
   //    if (device.id != id) {
   //      device.classList.add('hidden');
   //    } else
   //      device.classList.remove('hidden');
   //  })
+  return true;
 }
 
 function getDevice(id, device) {
