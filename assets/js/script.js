@@ -1,16 +1,21 @@
 var headers = [["DL CA", "col-dl"], ["MIMO 4x4", "col-mimo"], ["UL", "col-ul"]];
 var myDropdown;
-let state = {
-  device: null
-}
+
 window.onpopstate = function (event) {
-  if (event.state == null) {
+  console.log(window.location);
+  var deviceParam=getUrlParameter("device");
+  console.log(deviceParam)
+  console.log(event.state)
+  //window.history.pushState(null, "", "?");
+  if (typeof deviceParam == 'undefined') {
+    console.log("closing table")
     closeTable(false);
+    historyNull()
   }
   else {
-    if (toggleDevice(event.state.device) == false) {
+    if (!toggleDevice(deviceParam,false)) {
       historyNull()
-    };
+    }
   }
 };
 
@@ -48,14 +53,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     anchor.href = "javascript:void(0)";
     anchor.addEventListener('click', function () {
-      toggleDevice(device.model);
+      toggleDevice(device.model,true);
     });
     anchor.appendChild(img);
     anchor.appendChild(p);
     //anchor.appendChild(div)
     myDropdown.appendChild(anchor);
-    state.device = getUrlParameter("device");
-    if (state.device != null && toggleDevice(state.device)== false) {
+    deviceParam= getUrlParameter("device");
+    if (deviceParam != undefined && !toggleDevice(deviceParam,false)) {
         historyNull();
 		  show(document.body);
     }
@@ -109,7 +114,7 @@ function toggleTable(id, parent) {
   })
 }
 
-function toggleDevice(id) {
+function toggleDevice(id,flag) {
   device = getDevice(id, devices);
   if (device == null)
     return false;
@@ -119,8 +124,9 @@ function toggleDevice(id) {
   hide(document.getElementById("headbar"))
   show(document.getElementById("topbar"));
 
-  state.device = id;
-  updateState()
+  if(flag) {
+    updateState(id)
+  }
   var listContainer = document.getElementById('list_container');
   listContainer.innerHTML = ''
   var dev = document.getElementById('device')
@@ -280,14 +286,14 @@ function closeTable(flag) {
   div.innerHTML = ''
 }
 
-function updateState() {
-  history.pushState(state, "", "?device=" + state.device);
+function updateState(param) {
+  history.pushState(param, "", "?device=" + param);
 }
 
 function historyNull() {
   console.log("hystorynull")
-  state.device = null;
-  history.pushState(state, "", "?");
+  //window.history.back();
+  history.replaceState(null, "", "?");
 }
 // for (var i = 0; i < e.childNodes.length; i++) {
 // if (e.childNodes[i].className == 'collapse')
