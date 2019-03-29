@@ -1,5 +1,8 @@
 var headers = [["DL CA", "col-dl"], ["MIMO 4x4", "col-mimo"], ["UL", "col-ul"]];
 var myDropdown;
+var devices;
+
+
 
 window.onpopstate = function (event) {
   console.log(window.location);
@@ -35,6 +38,11 @@ function getUrlParameter(sParam) {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
+	loadJSON(function(response) {
+  // Parse JSON string into object
+    devices = JSON.parse(response);
+ });
+ 
   myDropdown = document.getElementById("myDropdown");
 
   //populate dropdown
@@ -295,6 +303,21 @@ function historyNull() {
   //window.history.back();
   history.replaceState(null, "", "?");
 }
+
+function loadJSON(callback) {   
+
+  var xobj = new XMLHttpRequest();
+      xobj.overrideMimeType("application/json");
+  xobj.open('GET', 'assets/js/device.json', false); // Replace 'my_data' with the path to your file
+  xobj.onreadystatechange = function () {
+        if (xobj.readyState == 4 && xobj.status == "200") {
+          // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
+          callback(xobj.responseText);
+        }
+  };
+  xobj.send(null);  
+}
+
 // for (var i = 0; i < e.childNodes.length; i++) {
 // if (e.childNodes[i].className == 'collapse')
 // {
