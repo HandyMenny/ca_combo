@@ -322,12 +322,12 @@ input:-moz-placeholder {
         text-align: left;
     }
 
-	.col-dl {
-		width: 50%;
+	.pinned {
+		width: 40%;
 	}
 
-	.col-mimo, .col-ul {
-		width: 25%;
+	div.table-wrapper div.scrollable {
+		margin-left: 40%; 
 	}
 
     #author
