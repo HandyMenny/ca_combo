@@ -321,6 +321,15 @@ input:-moz-placeholder {
     .card p {
         text-align: left;
     }
+
+	.col-dl {
+		width: 50%;
+	}
+
+	.col-mimo, .col-ul {
+		width: 25%;
+	}
+
     #author
     {
         display: none;
