@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CA Combo </title>
+
+    <style type="text/css">
+        .B1 {
+            color: #ee8700;
+            font-weight: bold;
+        }
+
+        .B3 {
+            color: #81a83d;
+            font-weight: bold;
+        }
+
+        .B7 {
+            color: #b0006f;
+            font-weight: bold;
+        }
+
+        .B8 {
+            color: #6c441d;
+            font-weight: bold;
+        }
+
+        .B20 {
+            color: #00a7a1;
+            font-weight: bold;
+        }
+
+        .B32 {
+            color: #9400bf;
+            font-weight: bold;
+        }
+/* Foundation v2.1.4 http://foundation.zurb.com */
+/* Artfully masterminded by ZURB  */
+
+/* -------------------------------------------------- 
+   Table of Contents
+-----------------------------------------------------
+:: Shared Styles
+:: Page Name 1
+:: Page Name 2
+*/
+
+
+/* -----------------------------------------
+   Shared Styles
+----------------------------------------- */
+
+table th { font-weight: bold; }
+table td, table th { padding: 9px 10px; text-align: left; }
+
+/* Mobile */
+@media only screen and (max-width: 768px) {
+	
+	table.responsive { margin-bottom: 0; }
+	
+	.pinned { position: absolute; left: 0; top: 0; background: #fff; width: 35%; overflow: hidden; overflow-x: scroll; border-right: 1px solid #ccc; border-left: 1px solid #ccc; }
+	.pinned table { border-right: none; border-left: none; width: 100%; }
+	.pinned table th, .pinned table td { white-space: nowrap; }
+	.pinned td:last-child { border-bottom: 0; }
+	
+	div.table-wrapper { position: relative; margin-bottom: 20px; overflow: hidden; border-right: 1px solid #ccc; }
+	div.table-wrapper div.scrollable { margin-left: 35%; }
+	div.table-wrapper div.scrollable { overflow: scroll; overflow-y: hidden; }	
+	
+	table.responsive td, table.responsive th { white-space: nowrap; overflow: hidden; }
+	table.responsive th:first-child, table.responsive td:first-child, table.responsive td:first-child, table.responsive.pinned td { display: none; }
+
+
+}
+body {
+    font-family: 'PT Sans', arial, sans-serif;
+}
+
+.listitem {
+    display: flex;
+    /* padding: 0 5px; */
+    flex-flow: wrap;
+    float: right;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 10px;
+    overflow-wrap: anywhere;
+}
+
+table thead>tr>th, table tbody>tr>th, table tfoot>tr>th, table thead>tr>td, table tbody>tr>td, table tfoot>tr>td {
+    padding: 8px;
+    line-height: 1.428571429;
+    vertical-align: bottom;
+    border-bottom: 1px solid #dddddd;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, .table-striped>tbody>tr:nth-child(odd)>th {
+    background-color: #f9f9f9;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.listitem span {
+    background: #ddd;
+    text-align: center;
+    display: inline-flex;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.listitem span.selected {
+    background: #ffb74d;
+}
+
+#search {
+    width: 50vw;
+    margin: 0 auto;
+    /*border-bottom: 1px solid #ddd;*/
+    display: flex;
+    font-size: 1rem;
+}
+
+#search i {
+    padding: 15px 5px 5px 0px;
+    font-size: 2.25rem;
+}
+
+/* The search field */
+
+#myInput {
+    box-sizing: border-box;
+    /*background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;*/
+    padding: 15px 10px 5px 5px;
+    border: none;
+    width: calc(50vw - 1.5rem);
+    margin: 0 auto;
+    font-size: 1.5rem;
+    outline: none;
+}
+
+/* Dropdown Content*/
+
+.dropdown-content {
+    background-color: #f6f6f6;
+    /* width: 50vw; */
+    border-left: 2px solid #ddd;
+    border-top: 2px solid #ddd;
+    /* z-index: 989; */
+    /* left: 50%; */
+    /* transform: translate(-50%); */
+    /* display: block; */
+    /* position: absolute; */
+    -webkit-box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6);
+    box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6);
+    display: flex;
+    flex-direction: row;
+    /* -webkit-box-flex: 0; */
+    /* flex: 0 0 25%; */
+    /* max-width: 25%; */
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    /* padding-right: 15px; */
+    /* padding-left: 15px; */
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+}
+
+.col-dl {
+    width: 40%;
+}
+
+.col-mimo, .col-ul {
+    width: 30%;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown-content a {
+    padding: 12px 16px;
+    /* display: block; */
+}
+
+/* Change color of dropdown links on hover */
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1
+}
+
+#topbar, #list_container {
+    padding: 10px 7px;
+}
+
+#list_container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    min-width: 0;
+    word-break: keep-all;
+    background-color: #fff;
+    background-clip: border-box;
+    border-bottom: 2px solid #ddd;
+    border-right: 2px solid #ddd;
+    box-sizing: border-box;
+    flex: 0 0 20%;
+    width: 20%;
+}
+
+.card img {
+    /* width: auto; */
+    /* border-top-left-radius: calc(0.25rem - 1px); */
+    /* border-top-right-radius: calc(0.25rem - 1px); */
+    vertical-align: middle;
+    border-style: none;
+    /* height: 20%; */
+    /* max-width: auto; */
+    /* max-height: 300px; */
+    height: 220px;
+    width: auto;
+    /* max-width: 200px; */
+    /* max-height: 200px; */
+    /* align-content: center; */
+    /* justify-content: center; */
+}
+
+#topbar, #headbar {
+    color: black;
+    padding: 10px;
+    background-color: #ddd;
+    /* -webkit-box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6); */
+    /* box-shadow: 0px 6px 6px 0px rgba(213, 213, 213, 0.6); */
+    /* transition: 0.3s; */
+    box-sizing: content-box;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#topbar {
+    position: sticky;
+    z-index: 1080 !important;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    flex-wrap: wrap;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+body {
+    margin: 0;
+}
+
+input[placeholder] {
+    text-overflow: ellipsis;
+}
+
+::-moz-placeholder {
+    text-overflow: ellipsis;
+}
+
+/* firefox 19+ */
+
+input:-moz-placeholder {
+    text-overflow: ellipsis;
+}
+
+#author {
+    float: right;
+}
+
+#top-left {
+    display: flex;
+}
+
+#top-left span {
+    display: flex;
+    padding: 10px 4px 10px 0;
+}
+
+#version {
+    /* width: 36.5rem; */
+    /* line-height: 0; */
+    border-radius: 0.25rem;
+    /* text-align: center; */
+    font-size: 0.8rem;
+    /* border: 2px solid #666; */
+    padding: 2px 5px;
+    background: #ffb74d;
+    /* color: white; */
+    text-transform: uppercase;
+    /* top: -20px; */
+    top: -5px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.card p {
+    text-align: center;
+    align-self: center;
+    width: 100%;
+}
+
+.highlight {
+    background: yellow;
+    font-weight: bold;
+}
+
+#OPCombo th, #OPCombo td {
+    /* text-align: center; */
+    border: 1px solid #dddddd;
+    /* border-bottom: 1px solid #dddddd; */
+    /* border-left: none; */
+}
+
+.h-combo, .h-combo2 {
+    border: 1px solid transparent !important;
+    border-left: 1px solid transparent !important;
+    border-right: 1px solid #dddddd !important;
+    box-sizing: content-box;
+    width: 8rem;
+}
+
+.h-combo {
+    visibility: hidden;
+}
+
+.h-combo2 {
+    border-bottom: 1px solid #dddddd !important;
+}
+
+#OP .pinned th, #OP .pinned td, #OP .scrollable th, #OP .scrollable td {
+    border-right: none !important;
+}
+
+#OP .pinned, #OP .scrollable {
+    border-left: none;
+}
+
+.italia {
+    background: #81a83d !important;
+    color: white;
+    border-color: transparent !important;
+}
+
+.tim {
+    background: #0b3d86 !important;
+    color: white;
+    border-color: transparent !important;
+}
+
+.wind {
+    background: #f69645 !important;
+    color: white;
+    border-color: transparent !important;
+}
+
+.vodafone {
+    background: #cf181f !important;
+    color: white;
+    border-color: transparent !important;
+}
+
+.iliad {
+    background: #44231c !important;
+    color: white;
+    border-color: transparent !important;
+}
+
+.link {
+    color: #d92328
+}
+
+.link:hover {
+    color: #0056b3;
+    text-decoration: underline
+}
+
+.center-text {
+    text-align: center;
+}
+
+.pinned {
+    width: 9rem;
+}
+
+div.table-wrapper div.scrollable {
+    margin-left: 9rem;
+}
+
+/* Large devices (desktops, less than 1200px) */
+
+@media (max-width: 1199.98px) {
+    .card {
+        flex: 0 0 25%;
+        width: 25%;
+    }
+    .card img {
+        height: 180px;
+    }
+    #search {
+        width: 65vw
+    }
+    #myInput {
+        width: calc(65vw - 1.5rem)
+    }
+    /* .h-combo {
+        width: 15%;
+    } */
+
+    #list_container {
+        max-width: 90%;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+
+@media (max-width: 991.98px) {
+    .card {
+        flex: 0 0 33.33%;
+        width: 33.33%;
+    }
+    .card img {
+        height: 140px;
+    }
+    #search {
+        width: 80vw
+    }
+    #myInput {
+        width: calc(80vw - 1.5rem)
+    }
+    /* .h-combo {
+        width: 20%;
+    } */
+    #list_container {
+        max-width: 95%;
+    }
+}
+
+/* Small devices (landscape phones, less than 768px) */
+
+@media (max-width: 767.98px) {
+    .card {
+        flex: 0 0 50%;
+        width: 50%;
+    }
+    .card img {
+        height: 100px;
+    }
+    #search {
+        width: 100vw
+    }
+    #myInput {
+        width: calc(100vw - 1.5rem)
+    }
+    .card br {
+        display: none;
+    }
+    #list_container {
+        max-width: 100%;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+
+@media (max-width: 575.98px) {
+    .card img {
+        display: none;
+    }
+    .card {
+        flex: 0 0 100%;
+        width: 100%;
+    }
+    .card p {
+        text-align: left;
+    }
+
+
+    #author {
+        display: none;
+    }
+}
+</style>
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>(function($) {
+
+  $(document).ready(function() {
+    var responsiveBoundary = 768;
+    var switched = false;
+
+    var updateTables = function() {
+
+      if (window.matchMedia("(max-width:" + responsiveBoundary + "px)").matches && !switched ) {
+        switched = true;
+        $("table.responsive").each(function(i, element) {
+          splitTable($(element));
+        });
+
+        return true;
+      }
+      if (switched && window.matchMedia("(min-width:" + (responsiveBoundary-0.02) + "px)").matches) {
+        switched = false;
+        $("table.responsive").each(function(i, element) {
+          unsplitTable($(element));
+        });
+      }
+
+      $(window).trigger('responsiveTables:postDraw');
+    };
+
+    $(window).on('load',updateTables);
+    $(window).on("redraw",function(){switched=false;updateTables();}); // An event to listen for
+    $(window).on("resize", updateTables);
+    $(window).on("editTable", function(){switched=false;updateTables();});
+
+
+
+    function splitTable(original)
+    {
+      original.wrap("<div class='table-wrapper'>");
+
+      var copy = original.clone();
+      copy.find("td:not(:first-child), th:not(:first-child)").css("display", "none");
+      copy.removeClass("responsive");
+
+      original.closest(".table-wrapper").append(copy);
+      copy.wrap("<div class='pinned'>");
+      original.wrap("<div class='scrollable'>");
+
+      //setCellHeights(original, copy);
+      //setTableHeights(original, copy);
+    }
+
+    function unsplitTable(original) {
+      original.closest(".table-wrapper").find(".pinned").remove();
+      original.unwrap();
+      original.unwrap();
+    }
+
+    function setCellHeights(original, copy) {
+      $('tr', original).each(function(index){
+        oheight = $(this).height();
+        cheight = $('tr:eq('+index+')', copy).height();
+        height = (oheight > cheight ? oheight : cheight);
+        $('tr:eq('+index+') td', original).css('height', height+'px');
+        $('tr:eq('+index+') td', copy).css('height', height+'px');
+      });
+    }
+
+    function setTableHeights(original, copy) {
+      oheight = original.outerHeight();
+      cheight = copy.outerHeight();
+      height = (oheight > cheight ? oheight : cheight);
+      original.css('min-height', height+'px');
+      copy.css('min-height', height+'px');
+    }
+
+  });
+
+})(jQuery);
+
+tim=[ [[3, 1], "<1", "489.5"], [[7, 1], "-", "-"], [[7, 3], "14", "685.3"], [[7, 3, 1], "-", "-"], [[20, 1], "<1", "195.8"], [[20, 3], "32", "489.5"], [[20, 3, 1], "<1", "587.4"], [[20, 7], "7", "391.6"], [[20, 7, 1], "-", "-"], [[20, 7, 3], "7", "783.2"], [[20, 7, 3, 1], "-", "-"], [[32, 3], "1", "587.4"], [[32, 7], "1", "489.5"], [[32, 7, 1], "-", "-"], [[32, 7, 3], "1", "881.1"], [[32, 20], "1", "293.7"], [[32, 20, 3], "1", "685.3"], [[32, 20, 7], "1", "587.4"], [[32, 20, 7, 3], "1", "979.0"] ]
+vodafone=[ [[3, 1], "9", "489.5"], [[7, 1], "2", "391.6"], [[7, 3], "12", "685.3"], [[7, 3, 1], "2", "783.2"], [[20, 1], "13", "195.8"], [[20, 3], "39", "489.5"], [[20, 3, 1], "7", "587.4"], [[20, 7], "8", "391.6"], [[20, 7, 1], "2", "489.5"], [[20, 7, 3], "7", "783.2"], [[20, 7, 3, 1], "2", "881.1"], [[32, 3], "<1", "587.4"], [[32, 7], "<1", "489.5"], [[32, 7, 1], "<1", "587.4"], [[32, 7, 3], "<1", "881.1"], [[32, 20], "<1", "293.7"], [[32, 20, 3], "<1", "685.3"], [[32, 20, 7], "<1", "587.4"], [[32, 20, 7, 3], "<1", "979.0"] ]
+wind=[ [[3, 1], "48", "489.5"], [[7, 1], "18", "489.5"], [[7, 3], "25", "783.2"], [[7, 3, 1], "17", "881.1"], [[20, 1], "41", "195.8"], [[20, 3], "61", "489.5"], [[20, 3, 1], "41", "587.4"], [[20, 7], "31", "489.5"], [[20, 7, 1], "16", "587.4"], [[20, 7, 3], "23", "881.1"], [[20, 7, 3, 1], "16", "979.0"], [[32, 3], "-", "-"], [[32, 7], "-", "-"], [[32, 7, 1], "-", "-"], [[32, 7, 3], "-", "-"], [[32, 20], "-", "-"], [[32, 20, 3], "-", "-"], [[32, 20, 7], "-", "-"], [[32, 20, 7, 3], "-", "-"] ]
+iliad=[ [[3, 1], "-", "-"], [[7, 1], "-", "-"], [[7, 3], "100", "391.6"], [[7, 3, 1], "-", "-"], [[20, 1], "-", "-"], [[20, 3], "-", "-"], [[20, 3, 1], "-", "-"], [[20, 7], "-", "-"], [[20, 7, 1], "-", "-"], [[20, 7, 3], "-", "-"], [[20, 7, 3, 1], "-", "-"], [[32, 3], "-", "-"], [[32, 7], "-", "-"], [[32, 7, 1], "-", "-"], [[32, 7, 3], "-", "-"], [[32, 20], "-", "-"], [[32, 20, 3], "-", "-"], [[32, 20, 7], "-", "-"], [[32, 20, 7, 3], "-", "-"] ]
+timul=[ [[7, 3], "14", "131.25"], [[20, 3], "32", "112.5"] ]
+global=[ [[3, 1], "18", "0"], [[7, 1], "6", "0"], [[7, 3], "17", "0"], [[7, 3, 1], "6", "0"], [[20, 1], "17", "0"], [[20, 3], "43", "0"], [[20, 3, 1], "15", "0"], [[20, 7], "14", "0"], [[20, 7, 1], "6", "0"], [[20, 7, 3], "12", "0"], [[20, 7, 3, 1], "6", "0"], [[32, 3], "<1", "0"], [[32, 7], "<1", "0"], [[32, 7, 1], "<1", "0"], [[32, 7, 3], "<1", "0"], [[32, 20], "<1", "0"], [[32, 20, 3], "<1", "0"], [[32, 20, 7], "<1", "0"], [[32, 20, 7, 3], "<1", "0"] ]
+globalul=[ [[7, 3], "5", "0"], [[20, 3], "11", "0"] ]
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    tbl = document.getElementById("OPCombo").getElementsByTagName('tbody')[0]
+        for (let j = 0; j < global.length; j++) {
+        let tr = tbl.insertRow(-1);
+
+        let td = tr.insertCell(-1);
+        td.innerHTML = convertCombos(global[j][0]);
+        td = tr.insertCell(-1);
+        td.innerHTML = parse_percent(global[j][1]);
+
+        td = tr.insertCell(-1);
+        td.innerHTML = parse_percent(tim[j][1]);
+         td = tr.insertCell(-1);
+        td.innerHTML = tim[j][2];
+
+        td = tr.insertCell(-1);
+        td.innerHTML = parse_percent(vodafone[j][1]);
+        td = tr.insertCell(-1);
+        td.innerHTML = vodafone[j][2];
+
+        td = tr.insertCell(-1);
+        td.innerHTML = parse_percent(wind[j][1]);
+        td = tr.insertCell(-1);
+        td.innerHTML = wind[j][2];
+        
+        td = tr.insertCell(-1);
+        td.innerHTML = parse_percent(iliad[j][1]);
+        td = tr.insertCell(-1);
+        td.innerHTML = iliad[j][2];
+    }
+});
+
+
+function convertCombos(combo) {
+   
+    var resultdl = "";
+    var comboLenght = combo.length;
+
+    var i = 0;
+    while (true) {
+      resultdl += "<span class=\"B" + parseInt(combo[i]) + "\">" + parseInt(combo[i]) + "</span>";
+  
+      if (++i < comboLenght) {
+        resultdl += " + ";
+      }
+      else break;
+    }
+  
+    
+    console.log(resultdl)
+    return resultdl;
+  }
+
+  function parse_percent(percent)
+  {
+    if(percent!="-")
+        percent+="%";
+    return percent;
+  }</script>
+
+
+</head>
+
+<body>
+    <div id="headbar">
+        <a href="../"><span id="name">CA Combo</span></a>
+        <sup id="version">Beta 0.4</sup>
+        <a href="#"><span id="opcombo">Combo Operatori</span></a>
+        <span id="author">by handymenny</span></div>
+    <div id="list_container">
+        <h1 class="center-text">Quali aggregazioni di bande supportano gli operatori italiani?</h1>
+        <p>La seguente tabella tenta di rispondere a questa domanda fornendo per ciascuna combinazione percentuali di diffusione<small><sup>1</sup></small> e velocità massime teoriche<small><sup>2</sup></small>.
+        <br>Le suddette percentuali indicano una stima della percentuale di nodi 4G che supportano la carrier aggregation su quella specifica combinazione di bande.</p>
+        <div class="table-container" id="OP">
+            <table class="responsive table-striped" id="OPCombo">
+
+                <thead>
+                    <tr class="first-header">
+                        <th rowspan="1" class="h-combo">CA<small><sup>dl</sup><small></th>
+                        <th class="italia" scope="colgroup">Italia<small><sup>3</sup></small></th>
+                        <th class="tim" colspan="2" scope="colgroup">Tim</th>
+                        <th class="vodafone" colspan="2" scope="colgroup">Vodafone</th>
+                        <th class="wind" colspan="2" scope="colgroup">WindTre</th>
+                        <th class="iliad" colspan="2" scope="colgroup">Iliad<small><sup>4</sup></small></th>
+                    </tr>
+                    <tr>
+
+                        <th rowspan="1" class="h-combo2">DL CA</th>
+                        <!-- <th scope="col" class="col-dl">DL CA</th> -->
+                        <th class="italia" scope="col" class="col-percent">Nodi 4G (%)</th>
+                        <th class="tim" scope="col" class="col-percent">Nodi 4G (%)</th>
+                        <th class="tim" scope="col" class="col-speed">Velocità (Mb/s)</th>
+                        <th class="vodafone" scope="col" class="col-percent">Nodi 4G (%)</th>
+                        <th class="vodafone" scope="col" class="col-speed">Velocità (Mb/s)</th>
+                        <th class="wind" scope="col" class="col-percent">Nodi 4G (%)</th>
+                        <th class="wind" scope="col" class="col-speed">Velocità (Mb/s)</th>
+                        <th class="iliad" scope="col" class="col-percent">Nodi 4G (%)</th>
+                        <th class="iliad" scope="col" class="col-speed">Velocità (Mb/s)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <col>
+                    <col>
+                    <colgroup span="2"></colgroup>
+                    <colgroup span="2"></colgroup>
+                    <colgroup span="2"></colgroup>
+                    <colgroup span="2"></colgroup>
+                </tbody>
+            </table>
+        </div><p>
+		<p>Dati aggiornati al 4 Aprile 2019.</p>
+        <b>Note</b><br>
+        <sup>1</sup> Percentuali stimate sulla base dei dati messi a disposizione da <a class="link" href="https://www.lteitaly.it">lteitaly.it</a>.<br>
+        <sup>2</sup> Velocità massime teoriche calcolate usando <i><a class="link" href=https://github.com/jake-cryptic/4g-speed>4G Speed Calculator</a></i> con le seguenti configurazioni:
+        <br>&emsp;- Tim. B32 20MHz mimo 2x2, B20 10MHz mimo 2x2, B7 15MHz mimo 4x4, B3 20MHz mimo 4x4, B1 10MHz mimo 2x2.
+        <br>&emsp;- Vodafone. B32 20MHz mimo 2x2, B20 10MHz mimo 2x2, B7 15MHz mimo 4x4, B3 20MHz mimo 4x4, B1 10MHz mimo 2x2.
+        <br>&emsp;- WindTre. B20 10MHz mimo 2x2, B7 20MHz mimo 4x4, B3 20MHz mimo 4x4, B1 10MHz mimo 2x2.
+        <br>&emsp;- Iliad. B7 10MHz mimo 4x4, B3 10MHz mimo 4x4.<br>
+        <sup>3</sup> Le percentuali sotto la colonna italia non tengono conto dei nodi h3g ancora attivi.<br>
+        <sup>4</sup> La colonna iliad fa riferimento alla rete proprietaria iliad, per il ran sharing fare riferimento alla colonna WindTre.
+    </p></div>
+</body>
+
+</html>
