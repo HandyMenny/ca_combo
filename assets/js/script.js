@@ -1,6 +1,7 @@
 var headers = [["DL CA", "col-dl"], ["MIMO 4x4", "col-mimo"], ["UL", "col-ul"]];
 var myDropdown;
 var devices;
+var backScrollTop=0;
 
 
 
@@ -127,14 +128,23 @@ function toggleDevice(id,flag) {
   if (device == null)
     return false;
 
-  hide(myDropdown);
-  hide(document.getElementById("search"))
-  hide(document.getElementById("headbar"))
-  show(document.getElementById("topbar"));
-
   if(flag) {
     updateState(id)
   }
+  
+  if(scrollTop()!=0)
+  {
+	backScrollTop=scrollTop();
+	//console.log(scrollTop());
+	//console.log(backScrollTop);
+	window.scroll(0,0);
+  }
+  
+  hide(myDropdown);
+  hide(document.getElementById("search"))
+  hide(document.getElementById("headbar"))
+
+  show(document.getElementById("topbar"));
   var listContainer = document.getElementById('list_container');
   listContainer.innerHTML = ''
   var dev = document.getElementById('device')
@@ -292,6 +302,8 @@ function closeTable(flag) {
   listContainer.innerHTML = ''
   var div = document.getElementById('listitem');
   div.innerHTML = ''
+  window.scroll(backScrollTop,backScrollTop);
+
 }
 
 function updateState(param) {
@@ -318,6 +330,9 @@ function loadJSON(callback) {
   xobj.send(null);  
 }
 
+function scrollTop() {
+	return window.pageYOffset || document.documentElement.scrollTop;
+};
 // for (var i = 0; i < e.childNodes.length; i++) {
 // if (e.childNodes[i].className == 'collapse')
 // {
