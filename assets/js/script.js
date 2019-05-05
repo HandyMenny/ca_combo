@@ -39,12 +39,24 @@ function getUrlParameter(sParam) {
 };
 
 document.addEventListener('DOMContentLoaded', function () {
-	loadJSON(function(response) {
-  // Parse JSON string into object
-    devices = JSON.parse(response);
- });
- 
   myDropdown = document.getElementById("myDropdown");
+  deviceParam = getUrlParameter("device");
+  if (deviceParam == undefined) {
+    show(document.body);
+  }
+
+  loadJSON(function (response) {
+    // Parse JSON string into object
+    devices = JSON.parse(response);
+  });
+
+  if (deviceParam != undefined && !toggleDevice(deviceParam, false)) {
+    historyNull();
+    show(document.body);
+  }
+  else
+    setTimeout(function () { window.dispatchEvent(new Event('load')); show(document.body) }, 0);
+
 
   //populate dropdown
   for (let i = 0; i < devices.length; i++) {
@@ -62,19 +74,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     anchor.href = "javascript:void(0)";
     anchor.addEventListener('click', function () {
-      toggleDevice(device.model,true);
+      toggleDevice(device.model, true);
     });
     anchor.appendChild(img);
     anchor.appendChild(p);
     //anchor.appendChild(div)
     myDropdown.appendChild(anchor);
-    deviceParam= getUrlParameter("device");
-    if (deviceParam != undefined && !toggleDevice(deviceParam,false)) {
-        historyNull();
-		  show(document.body);
-    }
-	else
-		setTimeout( function() { window.dispatchEvent(new Event('load')); show(document.body)}, 100);
+
   }
 });
 
