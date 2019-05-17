@@ -72,8 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
     else
       p.innerHTML = device.manufacturer + " <br>" + device.name + " <br>" + device.model + " <br>" + device.soc + " <br>" + device.year
 
-    anchor.href = "javascript:void(0)";
-    anchor.addEventListener('click', function () {
+    anchor.href = "?device="+device.model;
+    anchor.addEventListener('click', function (e) {
+		    e.preventDefault();
       toggleDevice(device.model, true);
     });
     anchor.appendChild(img);
