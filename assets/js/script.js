@@ -159,6 +159,15 @@ function toggleDevice(id,flag) {
   var div = document.getElementById('listitem');
   div.innerHTML = ''
 
+  if(device.description!= "null") {
+  var para = document.createElement("p");
+  var node = document.createTextNode(device.description);
+
+  para.appendChild(node);
+  listContainer.appendChild(para);
+  }
+
+
   for (let i = 0; i < device.list.length; i++) {
     let anchor = document.createElement('a');
     span = document.createElement('span')
