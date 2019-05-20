@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   //populate dropdown
-  for (let i = 0; i < devices.length; i++) {
-    let anchor = document.createElement('a');
-    let device = devices[i];
-    //let div=document.createElement('div');
+  for (var i = 0; i < devices.length; i++) {
+    var anchor = document.createElement('a');
+    var device = devices[i];
+    //var div=document.createElement('div');
     anchor.className = "card";
     var img = document.createElement("img");
     img.src = "assets/img/" + device.img;
-    let p = document.createElement('p');
+    var p = document.createElement('p');
     if (device.name == " ")
       p.innerHTML = device.manufacturer + " <br>" + device.model + " <br>" + device.soc + " <br>" + device.year
     else
@@ -168,8 +168,8 @@ function toggleDevice(id,flag) {
   }
 
 
-  for (let i = 0; i < device.list.length; i++) {
-    let anchor = document.createElement('a');
+  for (var i = 0; i < device.list.length; i++) {
+    var anchor = document.createElement('a');
     span = document.createElement('span')
     span.className = "selection " + device.list[i].name;
 
@@ -178,8 +178,8 @@ function toggleDevice(id,flag) {
     anchor.addEventListener('click', function () {
       toggleTable(device.list[i].name);
     });
-    let tbl = tableCreate(device.list[i]);
-    let tblDiv = document.createElement('div');
+    var tbl = tableCreate(device.list[i]);
+    var tblDiv = document.createElement('div');
     tblDiv.className = "table-container";
     tblDiv.id = device.list[i].name;
 
@@ -220,19 +220,19 @@ function tableCreate(list) {
 
 
   var combo = list.combo
-  for (let i = 0; i < combo.length; i++) {
-    let tr = tbl.insertRow(-1);
+  for (var i = 0; i < combo.length; i++) {
+    var tr = tbl.insertRow(-1);
     comboResult = convertCombos(combo[i]);
-    for (let j = 0; j < columnCount; j++) {
-      let td = tr.insertCell(-1);
+    for (var j = 0; j < columnCount; j++) {
+      var td = tr.insertCell(-1);
       td.innerHTML = comboResult[j];
     }
   }
 
-  let thead = document.createElement('thead');
-  let row = document.createElement('tr')
-  for (let i = 0; i < columnCount; i++) {
-    let headerCell = document.createElement("TH");
+  var thead = document.createElement('thead');
+  var row = document.createElement('tr')
+  for (var i = 0; i < columnCount; i++) {
+    var headerCell = document.createElement("TH");
     headerCell.innerHTML = headers[i][0];
     headerCell.className = headers[i][1];
     row.appendChild(headerCell);
