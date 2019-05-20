@@ -59,30 +59,31 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
   //populate dropdown
-  for (var i = 0; i < devices.length; i++) {
-    var anchor = document.createElement('a');
-    var device = devices[i];
-    //var div=document.createElement('div');
-    anchor.className = "card";
-    var img = document.createElement("img");
-    img.src = "assets/img/" + device.img;
-    var p = document.createElement('p');
-    if (device.name == " ")
-      p.innerHTML = device.manufacturer + " <br>" + device.model + " <br>" + device.soc + " <br>" + device.year
-    else
-      p.innerHTML = device.manufacturer + " <br>" + device.name + " <br>" + device.model + " <br>" + device.soc + " <br>" + device.year
+  for (var i = 0; i < devices.length; i++)
+    (function () {
+      var anchor = document.createElement('a');
+      var device = devices[i];
+      //var div=document.createElement('div');
+      anchor.className = "card";
+      var img = document.createElement("img");
+      img.src = "assets/img/" + device.img;
+      var p = document.createElement('p');
+      if (device.name == " ")
+        p.innerHTML = device.manufacturer + " <br>" + device.model + " <br>" + device.soc + " <br>" + device.year
+      else
+        p.innerHTML = device.manufacturer + " <br>" + device.name + " <br>" + device.model + " <br>" + device.soc + " <br>" + device.year
 
-    anchor.href = "?device="+device.model;
-    anchor.addEventListener('click', function (e) {
-		    e.preventDefault();
-      toggleDevice(device.model, true);
-    });
-    anchor.appendChild(img);
-    anchor.appendChild(p);
-    //anchor.appendChild(div)
-    myDropdown.appendChild(anchor);
+      anchor.href = "?device=" + device.model;
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        toggleDevice(device.model, true);
+      });
+      anchor.appendChild(img);
+      anchor.appendChild(p);
+      //anchor.appendChild(div)
+      myDropdown.appendChild(anchor);
 
-  }
+    }()); // immediate invocation
 });
 
 function show(element) {
@@ -168,32 +169,34 @@ function toggleDevice(id,flag) {
   }
 
 
-  for (var i = 0; i < device.list.length; i++) {
-    var anchor = document.createElement('a');
-    span = document.createElement('span')
-    span.className = "selection " + device.list[i].name;
+  for (var i = 0; i < device.list.length; i++)
+    (function () {
+      var anchor = document.createElement('a');
+      var listName = device.list[i].name;
 
-    span.innerHTML = device.list[i].name;
-    anchor.href = "javascript:void(0)"
-    anchor.addEventListener('click', function () {
-      toggleTable(device.list[i].name);
-    });
-    var tbl = tableCreate(device.list[i]);
-    var tblDiv = document.createElement('div');
-    tblDiv.className = "table-container";
-    tblDiv.id = device.list[i].name;
+      span = document.createElement('span')
+      span.className = "selection " + listName;
 
-    if (i > 0) {
-      tblDiv.classList.add("hidden");
-    }
-    else
-      span.classList.add("selected");
-    anchor.appendChild(span);
-    div.appendChild(anchor);
-    tblDiv.appendChild(tbl);
-    listContainer.appendChild(tblDiv);
-  }
+      span.innerHTML = listName;
+      anchor.href = "javascript:void(0)"
+      anchor.addEventListener('click', function () {
+        toggleTable(listName);
+      });
+      var tbl = tableCreate(device.list[i]);
+      var tblDiv = document.createElement('div');
+      tblDiv.className = "table-container";
+      tblDiv.id = device.list[i].name;
 
+      if (i > 0) {
+        tblDiv.classList.add("hidden");
+      }
+      else
+        span.classList.add("selected");
+      anchor.appendChild(span);
+      div.appendChild(anchor);
+      tblDiv.appendChild(tbl);
+      listContainer.appendChild(tblDiv);
+    }()); // immediate invocation
   window.dispatchEvent(new Event('editTable'));
   //  document.querySelectorAll('.device').forEach(function(device) {
   //    if (device.id != id) {
