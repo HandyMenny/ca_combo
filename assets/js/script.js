@@ -312,9 +312,17 @@ function convertCombos(combo) {
 
 function closeTable(flag) {
   document.title=oldTitle;
-  if (flag == true)
-    historyNull()
 
+  if (flag == true) {
+    if (history.state != null) {
+      window.scroll(0, history.state.backScrollTop);
+      window.history.back();
+      return;
+    }
+    else
+      historyNull();
+  }
+  
   show(myDropdown);
   show(document.getElementById("search"))
   show(document.getElementById("headbar"))
@@ -323,32 +331,15 @@ function closeTable(flag) {
   listContainer.innerHTML = ''
   var div = document.getElementById('listitem');
   div.innerHTML = ''
-  window.scroll(backScrollTop,backScrollTop);
-
 }
 
 function updateState(param) {
-  history.pushState(param, "", "?device=" + param);
+  history.pushState('{device:' + param + 'backScrollTop:' + scrollTop() + '}', document.title, "?device=" + param);
 }
 
 function historyNull() {
   console.log("hystorynull")
-  //window.history.back();
-  history.replaceState(null, "", "?");
-}
-
-function loadJSON(callback) {   
-
-  var xobj = new XMLHttpRequest();
-      xobj.overrideMimeType("application/json");
-  xobj.open('GET', 'assets/js/device.json', false); // Replace 'my_data' with the path to your file
-  xobj.onreadystatechange = function () {
-        if (xobj.readyState == 4 && xobj.status == "200") {
-          // Required use of an anonymous callback as .open will NOT return a value but simply returns undefined in asynchronous mode
-          callback(xobj.responseText);
-        }
-  };
-  xobj.send(null);  
+  history.replaceState('{device:null, backScrollTop:' + scrollTop() + '}', document.title, "?");
 }
 
 function scrollTop() {
