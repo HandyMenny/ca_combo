@@ -312,9 +312,17 @@ function convertCombos(combo) {
 
 function closeTable(flag) {
   document.title=oldTitle;
-  if (flag == true)
-    historyNull()
 
+  if (flag == true) {
+    if (history.state != null) {
+      window.scroll(0, history.state.backScrollTop);
+      window.history.back();
+      return;
+    }
+    else
+      historyNull();
+  }
+  
   show(myDropdown);
   show(document.getElementById("search"))
   show(document.getElementById("headbar"))
@@ -323,18 +331,15 @@ function closeTable(flag) {
   listContainer.innerHTML = ''
   var div = document.getElementById('listitem');
   div.innerHTML = ''
-  window.scroll(backScrollTop,backScrollTop);
-
 }
 
 function updateState(param) {
-  history.pushState(param, "", "?device=" + param);
+  history.pushState('{device:' + param + 'backScrollTop:' + scrollTop() + '}', document.title, "?device=" + param);
 }
 
 function historyNull() {
   console.log("hystorynull")
-  //window.history.back();
-  history.replaceState(null, "", "?");
+  history.replaceState('{device:null, backScrollTop:' + scrollTop() + '}', document.title, "?");
 }
 
 function loadJSON(callback) {   
