@@ -135,8 +135,9 @@ function toggleDevice(id,flag) {
   device = getDevice(id, devices);
   if (device == null)
     return false;
-
-  if(flag) {
+  oldTitle=document.title;
+  document.title = document.title.replace("",device.manufacturer + " " + ((device.name.length>1 && device.name) || device.model) + " - ");
+  if (flag) {
     updateState(id)
   }
   
@@ -310,6 +311,7 @@ function convertCombos(combo) {
 }
 
 function closeTable(flag) {
+  document.title=oldTitle;
   if (flag == true)
     historyNull()
 
